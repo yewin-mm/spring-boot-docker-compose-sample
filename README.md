@@ -54,8 +54,8 @@
 ## ⚡️About The Project
 This is Demo Project for Spring boot with docker compose. <br>
 Docker Compose is to manage one or many containerized applications in one configuration file called `docker-compose.yml` and you can easily build and run your applications by using that file. <br>
-Also, `docker-compose` is to reduce typing many commands to run multiple containers in CMD or Terminal and all you need is to type `docker-compose up -d` and `docker-compose down -d`. 
-You should learn application with Dockerfile without docker-compose first in here. [Spring Boot Docker Sample](https://github.com/yewin-mm/spring-boot-docker-sample)  
+Also, `docker-compose` is to reduce typing many commands to run multiple containers in CMD or Terminal and all you need is to type `docker-compose up -d` and `docker-compose down -d`. <br>
+You should learn application with Dockerfile without docker-compose first in here. [Spring Boot Docker Sample](https://github.com/yewin-mm/spring-boot-docker-sample) <br>
 As of now, running application as container way is the best option to manage application deployment. (you can find more about benefits of using docker in google). <br>
 You can learn how to add configuration in Docker Compose file to build dockerized application. <br>
 I've dropped some docker commands to run application in below [Instruction](#instruction) section. <br>
@@ -95,7 +95,6 @@ If you are not good enough in basic API knowledge with Java Spring Boot, Docker 
 Click below links.
 * [Spring Boot Sample CRUD Application](https://github.com/yewin-mm/spring-boot-sample-crud) (for sample CRUD application)
 * [Reading Values from Properties files](https://github.com/yewin-mm/reading-properties-file-values) (for reading values from properties files)
-* [Some Docker Basic commands](https://www.edureka.co/blog/docker-commands/) (from edureka website)
 * [Spring Boot Docker Sample](https://github.com/yewin-mm/spring-boot-docker-sample)
 
 
@@ -137,7 +136,7 @@ You need to learn sample dockerized application by using `Dockerfile` first. [Sp
   * `up` is to build image and run this application as container
   * `-d` option is to hide log and run in background. 
     * You can remove `-d` option when you want to test your application is running well by checking logs
-    * You can also check container logs without removing `-d` option by typing `docker logs -f -n 200 {container_id}`, here, `-n 200` is line number.
+    * You can also check container logs without removing `-d` option by typing `docker logs -f -n 200 {container_id}`, here, `-n 200` is line number.<br> But I recommend to use with `-d` option when you run your application.
 
   * You can check your created docker images with below command.
   * ```sh
@@ -160,13 +159,14 @@ You need to learn sample dockerized application by using `Dockerfile` first. [Sp
 * After application was running well as container, you can test application is alive or not by calling api which I added in this demo-application. <br> 
  Call `http://localhost:8080/spring-boot-docker-compose-sample/getHello` via Browser or Postman.
 
-* If your application is not running well when application started up, you can check logs by removing `-d` to appear log in CMD or Terminal like below. <br>
+* If your application is not running well when application was started up, you can check logs by removing `-d` to appear log to check error in CMD or Terminal like below. <br>
   * run without detached mode `docker-compose up` <br>
   * you can stop (terminate) application by pressing Ctrl+C when you run application without detached mode.
   * I recommend to run with `-d` option after checking error.
 
 * If you run application with detached mode and if you want to stop application, you can stop container. (if not with `-d` option, you can `ctrl+c` to stop container)
 * Please note that If you don't stop container, your application container will run background the whole time.
+* So, you need to stop your application if your application is not go live for the whole time.
   * Type
     ```sh
     docker-compose down
@@ -175,7 +175,7 @@ You need to learn sample dockerized application by using `Dockerfile` first. [Sp
   * If you don't use `docker-compose` file and if you use dockerfile only, you need to stop by `docker stop {container_id}` and for that case you need container id.
   * You can also use `docker stop {container_id}` command, but for that case, container will remain as stopped container (not remove), and it will take a bit space on docker.
   * `docker-compose down` don't need container id. It will remove your container and associated network also. (please note that, docker compose file will create default `network` for your application)
-  * So, that `down` option will clear your stopped container and application running network, and it's the good things to remove stopped/no use container.
+  * So, that `down` option will clear your stopped container and application running network, and it's the good thing to remove stopped/no use container.
   * So, that is one of the good approach using `docker-compose` file and `docker-compose down` keyword.
 
 * If you want to start or restart the application next time, you can start application easily with below command.
@@ -188,7 +188,7 @@ You need to learn sample dockerized application by using `Dockerfile` first. [Sp
 * If you did some changes in your application, 
 * You need to regenerate jar file by `mvn clean package` or `mvn clean package -DskipTests=true`.
 * And if you type `docker-compose up -d` to run application, you don't get the update even you already regenerate jar file.
-* This is because `docker-compose` will use `exising created image` which is build from old jar file.
+* This is because `docker-compose` will use `existing created image` which is build from old jar file.
 * So, you need to recreate image by below command.
 
   * Type
