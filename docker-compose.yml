@@ -1,0 +1,23 @@
+# Define docker compose version
+version: "3.7"
+# Service define for your application and one or many applications can involve in services.
+services:
+  myapp:
+
+    # Give name to Image and you can remove that and if you removed, it will go with default image name with format like `spring-boot-docker-compose-sample_myapp`.
+    # You can add tag version like `image: spring-boot-docker-compose-sample:1.0` or `image: spring-boot-docker-compose-sample:latest`
+    image: spring-boot-docker-compose-sample
+
+    # You can remove below build command,
+    # it's to specify directory of Dockerfile and if no set, it will take your current directory `Dockerfile` of `docker-compose` file.
+    # You can add your specific docker file which are at another directory under your project by below context path, eg. build context: ./src
+    # Here, . (dot) mean same level of this `docker-compose` file and `docker-compose` will take `Dockerfile` which are at same folder level.
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    # adding ports to run container.
+    # The first port is to call this application from outside. The last port is the port which is to run inside container, and it must be same with application.properties file define port.
+    # You can change the first port, if you changed port 8080 to 8081, you need to call your application api via postman or browser or other application by that 8081 port.
+    ports:
+      - "8080:8080"

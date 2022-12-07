@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author: Ye Win
- * @created: 24/10/2022
- * @project: spring-boot-docker-sample
+ * @created: 05/11/2022
+ * @project: spring-boot-docker-compose-sample
  * @package: pers.yewin.springbootdocker.controller
  */
 
@@ -19,6 +19,7 @@ public class HelloController {
 
     @GetMapping("/getHello")
     public String getHello(){
+        System.out.println("Hello print");
         return "Hello from Dockerized Application";
     }
 }

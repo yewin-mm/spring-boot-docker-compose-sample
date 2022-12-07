@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>pers.yewin</groupId>
-    <artifactId>spring-boot-docker-sample</artifactId>
+    <artifactId>spring-boot-docker-compose-sample</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>spring-boot-docker-sample</name>
-    <description>spring-boot-docker-sample</description>
+    <name>spring-boot-docker-compose-sample</name>
+    <description>spring-boot-docker-compose-sample</description>
     <properties>
         <java.version>1.8</java.version>
     </properties>
