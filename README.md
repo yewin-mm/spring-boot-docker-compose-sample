@@ -174,7 +174,9 @@ You need to learn sample dockerized application by using `Dockerfile` first. [Sp
   * `down` option will remove container too.
   * If you don't use `docker-compose` file and if you use dockerfile only, you need to stop by `docker stop {container_id}` and for that case you need container id.
   * You can also use `docker stop {container_id}` command, but for that case, container will remain as stopped container (not remove), and it will take a bit space on docker.
-  * `docker-compose down` don't need container id. It will remove your container and associated network also. (please note that, docker compose file will create default `network` for your application)
+  * `docker-compose down` don't need container id. It will remove your container and associated network also. 
+  * Please note that, docker compose file will create default `network` for your application, you can test it by typing `docker network ls` after docker compose was up.
+  * I've dropped test network in `docker-compose.yml` file as comment code, and you can check it out. 
   * So, that `down` option will clear your stopped container and application running network, and it's the good thing to remove stopped/no use container.
   * So, that is one of the good approach using `docker-compose` file and `docker-compose down` keyword.
 

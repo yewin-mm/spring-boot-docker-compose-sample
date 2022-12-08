@@ -26,7 +26,8 @@ services:
       - "8080:8080"
 
 # docker compose will automatically create network with name format like your project name + default
-# Application Container will run under that network.
+# You can test it by typing `docker network ls` after docker compose was up.
+# Container will run under that network.
 # you can't connect from this app to another app which are running under different network.
 # You can add your network as you want by network: tag. but here, I don't add custom network and used default.
 # below is the sample test network
