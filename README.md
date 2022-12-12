@@ -225,6 +225,14 @@ You need to learn sample dockerized application by using `Dockerfile` first. [Sp
   * here, you can get your application container id by typing `docker ps`. 
   * If container is not up (not running), you can't go inside container.
   * here, you can leave inside docker container by typing `exit` inside container.
+  
+* Check Docker disk space as some unnecessary images and unused containers may take much space
+  * Type 
+    ```sh
+    docker system df
+    ```
+  * For more commands like, cleaning unused containers, images, get inside container, logging, deleting container, image
+  * you can find in here, [Dockerized Application Sample Commands](https://github.com/yewin-mm/spring-boot-docker-sample/blob/master/README.md#instruction)
 
 * Read `Dockerfile` and `docker-compose.yml` file again under application folder path carefully and see the comment in there.
 
