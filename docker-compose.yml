@@ -12,6 +12,7 @@ services:
     # it's to specify directory of Dockerfile and if no set, it will take your current directory `Dockerfile` of `docker-compose` file.
     # You can add your specific docker file which are at another directory under your project by below context path, eg. build context: ./src
     # Here, . (dot) mean same level of this `docker-compose` file and `docker-compose` will take `Dockerfile` which are at same folder level.
+    # you can even remove below build line or type like "build: ./" without `context` and `dockerfile` keyword.
     build:
       context: .
       dockerfile: Dockerfile
